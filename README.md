@@ -1,5 +1,5 @@
 # multiselect-vue
-This is a basic multiselect component written in TypeScript. It was modified from (this)[https://codepen.io/SkyHyzer/pen/xvOVZq].
+This is a basic multiselect component written in TypeScript. It was modified from [this](https://codepen.io/SkyHyzer/pen/xvOVZq).
 
 The component shows a simple way to provide multiselect with searching ability. 
 The component is not tested and isn't mean to be used in a production environment, but an example of a multiselect component.
