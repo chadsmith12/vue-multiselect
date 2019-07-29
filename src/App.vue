@@ -9,6 +9,13 @@
           <input type="text" class="form-control" id="addValue" v-model="newItem"/>
           <button type="button" class="btn btn-primary" @click="addValue">Add Value</button>
         </div>
+        <div class="col-sm">
+          <select v-model="selectedItems" multiple>
+            <option v-for="item in items" :key="item">
+              {{ item }}
+            </option>
+          </select>
+        </div>
       </div>
       <div class="row">
         <div class="col-sm">

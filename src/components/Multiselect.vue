@@ -10,7 +10,7 @@
             v-model="searchValue">
     </div>
     <div class="selected" :class="{open: hasSelectedItems}">
-        <div v-for="item in selectedItems" :key="item" class="choice">
+        <div v-for="item in value" :key="item" class="choice">
             {{ item }}<i class="fa fa-times unselect" @click="clickedItem(item)"></i>
         </div>
     </div>
@@ -37,7 +37,6 @@ import { SelectItem } from '@/models/SelectItem';
 
 @Component
 export default class Multiselect extends Vue {
-    public selectedItems: string[] = [];
     public searchValue: string = '';
     @Prop() private label!: string;
     @Prop({default: 'Search...'}) private placeholder!: string;
@@ -45,7 +44,7 @@ export default class Multiselect extends Vue {
     @Prop() private value!: string[];
 
     private get hasSelectedItems(): boolean {
-        return this.selectedItems.length > 0;
+        return this.value.length > 0;
     }
 
     private get filteredItems(): string[] {
@@ -64,10 +63,10 @@ export default class Multiselect extends Vue {
     private clickedItem(selectedItem: string): void {
         const isItemSelected = this.isSelected(selectedItem);
         if (isItemSelected) {
-            const indexToDelete = this.selectedItems.indexOf(selectedItem);
-            this.$delete(this.selectedItems, indexToDelete);
+            const indexToDelete = this.value.indexOf(selectedItem);
+            this.$delete(this.value, indexToDelete);
         } else {
-            this.selectedItems.push(selectedItem);
+            this.value.push(selectedItem);
         }
 
         this.onInputChange();
@@ -75,15 +74,11 @@ export default class Multiselect extends Vue {
 
     @Emit('input')
     private onInputChange() {
-        return this.selectedItems;
+        return this.value;
     }
 
     private isSelected(selectedItem: string): boolean {
-        return this.selectedItems.includes(selectedItem);
-    }
-
-    private mounted(): void {
-        this.selectedItems = this.value.map((item) => item);
+        return this.value.includes(selectedItem);
     }
 }
 </script>
