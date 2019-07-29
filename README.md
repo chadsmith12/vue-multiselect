@@ -1,29 +1,26 @@
 # multiselect-vue
+This is a basic multiselect component written in TypeScript. It was modified from (this)[https://codepen.io/SkyHyzer/pen/xvOVZq].
 
-## Project setup
-```
-yarn install
-```
+The component shows a simple way to provide multiselect with searching ability. 
+The component is not tested and isn't mean to be used in a production environment, but an example of a multiselect component.
 
-### Compiles and hot-reloads for development
+## Example Use
+Example Usage of the comnponent:
 ```
-yarn run serve
-```
-
-### Compiles and minifies for production
-```
-yarn run build
-```
-
-### Run your tests
-```
-yarn run test
+<Multiselect 
+    label="Please Select Your Fruits..."
+    placeholder="Search Fruits..."
+    :items="items"
+    v-model="selectedItems"/>
 ```
 
-### Lints and fixes files
-```
-yarn run lint
-```
+### v-model Support
+This component supports `v-model` with a `string[]`. 
 
-### Customize configuration
-See [Configuration Reference](https://cli.vuejs.org/config/).
+### Props
+Component supports the following props:
+* label: `string` - The label to show for the multiselect.
+* placeholder:  `string` - The placeholder in the search box.
+* items: `string[]` - The items that appear in the search box.
+* value: `string[]` - The input value of the component.
+
